@@ -1,2 +1,92 @@
-# fly-response
-FlyResponse to Nette Framework
+# FlyResponse
+
+[![Build Status](https://img.shields.io/travis/minetro/fly-response.svg?style=flat-square)](https://travis-ci.org/minetro/fly-response)
+[![Code coverage](https://img.shields.io/coveralls/minetro/fly-response.svg?style=flat-square)](https://coveralls.io/r/minetro/fly-response)
+[![Downloads this Month](https://img.shields.io/packagist/dm/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
+[![Downloads total](https://img.shields.io/packagist/dt/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
+[![Latest stable](https://img.shields.io/packagist/v/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
+[![HHVM Status](https://img.shields.io/hhvm/minetro/fly-response.svg?style=flat-square)](http://hhvm.h4cc.de/package/minetro/fly-response)
+
+On-the-fly response for Nette Framework.
+
+## Install
+
+```sh
+composer require minetro/fly-response
+```
+
+## Responses
+
+### FlyResponse
+
+For common purpose and your custom solutions.
+
+### FlyFileResponse
+
+Special response for handling files on-the-fly.
+
+## Adapters
+
+### ProcessAdapter
+
+Execute command over `popen`.
+
+```php
+use Minetro\FlyResponse\Adapter\ProcessAdapter;
+use Minetro\FlyResponse\FlyFileResponse;
+
+// Compress current folder and send to response
+$adapter = new ProcessAdapter('tar cf - ./ | gzip -c -f');
+$response = new FlyFileResponse($adapter, 'folder.tgz');
+
+$this->sendResponse($response);
+```
+
+### StdoutAdapter
+
+Write to `php://output`.
+
+```php
+use Minetro\FlyResponse\Adapter\StdoutAdapter;
+use Minetro\FlyResponse\Buffer\Buffer;
+use Minetro\FlyResponse\FlyFileResponse;
+use Nette\Http\IRequest;
+use Nette\Http\IResponse;
+
+// Write to stdout over buffer class
+$adapter = new StdoutAdapter(function(Buffer $buffer, IRequest $request, IResponse $response) {
+    // Modify headers
+    $response->setHeader(..);
+    
+    // Write data
+    $buffer->write('Some data..');
+});
+$response = new FlyFileResponse($adapter, 'my.data');
+
+$this->sendResponse($response);
+```
+
+### CallbackAdapter
+
+```php
+use Minetro\FlyResponse\Adapter\CallbackAdapter;
+use Minetro\FlyResponse\Buffer\Buffer;
+use Minetro\FlyResponse\FlyFileResponse;
+use Nette\Http\IRequest;
+use Nette\Http\IResponse;
+
+$adapter = new CallbackAdapter(function(IRequest $request, IResponse $response) {
+    // Modify headers
+    $response->setHeader(..);
+    
+    // Write data
+    $buffer->write('Some data..');
+});
+$response = new FlyFileResponse($adapter, 'my.data');
+
+$this->sendResponse($response);
+```
+
+-----
+
+Thanks for testing, reporting and contributing.
