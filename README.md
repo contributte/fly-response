@@ -29,7 +29,7 @@ Special response for handling files on-the-fly.
 
 ### ProcessAdapter
 
-Execute command over `popen`.
+Execute command over [popen](http://php.net/manual/en/function.popen.php).
 
 ```php
 use Minetro\FlyResponse\Adapter\ProcessAdapter;
