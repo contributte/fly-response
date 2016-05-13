@@ -93,7 +93,8 @@ $this->sendResponse($response);
 ## Model
 
 ```php
-final class BigOperationHandler {
+final class BigOperationHandler
+{
 
     /** @var Facade */
     private $facade;
@@ -101,30 +102,34 @@ final class BigOperationHandler {
     /**
      * @param Facade $facade
      */
-    public function __construct(Facade $facade) {
+    public function __construct(Facade $facade)
+    {
         $this->facade = $facade;
     }
 
-    public function toFlyResponse() {
-        $adapter = new CallbackAdapter(function(IRequest $request, IResponse $response) {
+    public function toFlyResponse()
+    {
+        $adapter = new CallbackAdapter(function (IRequest $request, IResponse $response) {
             // Modify headers
             $response->setHeader(..);
-            
+
             // Fetch topsecret data
             $data = $this->facade->getData();
             foreach ($data as $d) {
                 // Write or print data..
             }
         });
-    
+
         return new FlyFileResponse($adapter, 'file.ext');
+
         // or
         return new FlyResponse($adapter);
     }
 }
 
-interface IBigOperationHandlerFactory {
-    
+interface IBigOperationHandlerFactory
+{
+
     /**
      * @return BigOperationHandler
      */
@@ -132,18 +137,20 @@ interface IBigOperationHandlerFactory {
 
 }
 
-final class MyPresenter extends Nette\Application\UI\Presenter {
+final class MyPresenter extends Nette\Application\UI\Presenter
+{
 
     /** @var IBigOperationHandlerFactory @inject */
     public $bigOperationHandlerFactory;
-    
-    public function handleMagic() {
-        return $this->sendResponse(
+
+    public function handleMagic()
+    {
+        $this->sendResponse(
             $this->bigOperationHandlerFactory->create()->toFlyResponse()
         );
     }
-
 }
+```
 
 -----
 
