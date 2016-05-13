@@ -75,17 +75,75 @@ use Minetro\FlyResponse\FlyFileResponse;
 use Nette\Http\IRequest;
 use Nette\Http\IResponse;
 
-$adapter = new CallbackAdapter(function(IRequest $request, IResponse $response) {
+$adapter = new CallbackAdapter(function(IRequest $request, IResponse $response) use ($model) {
     // Modify headers
     $response->setHeader(..);
     
-    // Write data
-    $buffer->write('Some data..');
+    // Fetch topsecret data
+    $data = $this->facade->getData();
+    foreach ($data as $d) {
+        // Write or print data..
+    }
 });
 $response = new FlyFileResponse($adapter, 'my.data');
 
 $this->sendResponse($response);
 ```
+
+## Model
+
+```php
+final class BigOperationHandler {
+
+    /** @var Facade */
+    private $facade;
+
+    /**
+     * @param Facade $facade
+     */
+    public function __construct(Facade $facade) {
+        $this->facade = $facade;
+    }
+
+    public function toFlyResponse() {
+        $adapter = new CallbackAdapter(function(IRequest $request, IResponse $response) {
+            // Modify headers
+            $response->setHeader(..);
+            
+            // Fetch topsecret data
+            $data = $this->facade->getData();
+            foreach ($data as $d) {
+                // Write or print data..
+            }
+        });
+    
+        return new FlyFileResponse($adapter, 'file.ext');
+        // or
+        return new FlyResponse($adapter);
+    }
+}
+
+interface IBigOperationHandlerFactory {
+    
+    /**
+     * @return BigOperationHandler
+     */
+    public function create();
+
+}
+
+final class MyPresenter extends Nette\Application\UI\Presenter {
+
+    /** @var IBigOperationHandlerFactory @inject */
+    public $bigOperationHandlerFactory;
+    
+    public function handleMagic() {
+        return $this->sendResponse(
+            $this->bigOperationHandlerFactory->create()->toFlyResponse()
+        );
+    }
+
+}
 
 -----
 
