@@ -30,7 +30,7 @@ class StdoutAdapter implements Adapter
         // Open file pointer
         $b = new FileBuffer('php://output', 'w');
 
-        // Fire callback with file pointer
+        // Fire callback with buffer, request and response
         call_user_func_array($this->callback, [$b, $request, $response]);
 
         // Close resource

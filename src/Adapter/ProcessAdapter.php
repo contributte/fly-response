@@ -37,18 +37,18 @@ class ProcessAdapter implements Adapter
      */
     public function send(IRequest $request, IResponse $response)
     {
-        // Open file process
+        // Open file buffer
         $b = new ProcessBuffer($this->command, $this->mode);
 
         while (!$b->eof()) {
-            // Fill a buffer
+            // Read from buffer
             $output = $b->read($this->buffersize);
 
             // Goes to ouput
             echo $output;
         }
 
-        // Close file process
+        // Close file buffer
         $b->close();
     }
 
