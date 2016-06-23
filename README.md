@@ -1,5 +1,9 @@
 # FlyResponse
 
+On-the-fly response for Nette Framework.
+
+-----
+
 [![Build Status](https://img.shields.io/travis/minetro/fly-response.svg?style=flat-square)](https://travis-ci.org/minetro/fly-response)
 [![Code coverage](https://img.shields.io/coveralls/minetro/fly-response.svg?style=flat-square)](https://coveralls.io/r/minetro/fly-response)
 [![Downloads this Month](https://img.shields.io/packagist/dm/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
@@ -7,7 +11,9 @@
 [![Latest stable](https://img.shields.io/packagist/v/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
 [![HHVM Status](https://img.shields.io/hhvm/minetro/fly-response.svg?style=flat-square)](http://hhvm.h4cc.de/package/minetro/fly-response)
 
-On-the-fly response for Nette Framework.
+## Discussion / Help
+
+[![Join the chat](https://img.shields.io/gitter/room/minetro/nette.svg?style=flat-square)](https://gitter.im/minetro/nette?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
 
