@@ -16,14 +16,11 @@
     "nette/http": "~2.3.0"
   },
   "require-dev": {
-    "nette/tester": "1.7.0"
+    "nette/tester": "~2.0.0"
   },
   "autoload": {
     "psr-4": {
       "Minetro\\FlyResponse\\": "src/"
     }
-  },
-  "config": {
-    "vendor-dir": "vendor"
   }
 }
