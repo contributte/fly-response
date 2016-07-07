@@ -1,8 +1,7 @@
 <?php
 
-namespace Minetro\FlyResponse\Buffer;
+namespace Minetro\FlyResponse\Adapter;
 
-use Minetro\FlyResponse\Adapter\Adapter;
 use Nette\Http\IRequest;
 use Nette\Http\IResponse;
 
