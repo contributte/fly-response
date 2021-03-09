@@ -21,7 +21,7 @@ This package is no longer developed here. In favor of [contributte/application](
 
 ## Install
 
-```sh
+```bash
 composer require minetro/fly-response
 ```
 
