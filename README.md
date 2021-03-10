@@ -65,11 +65,11 @@ use Nette\Http\IResponse;
 
 // Write to stdout over buffer class
 $adapter = new StdoutAdapter(function(Buffer $buffer, IRequest $request, IResponse $response) {
-    // Modify headers
-    $response->setHeader(..);
-    
-    // Write data
-    $buffer->write('Some data..');
+	// Modify headers
+	$response->setHeader(..);
+
+	// Write data
+	$buffer->write('Some data..');
 });
 $response = new FlyFileResponse($adapter, 'my.data');
 
@@ -86,14 +86,14 @@ use Nette\Http\IRequest;
 use Nette\Http\IResponse;
 
 $adapter = new CallbackAdapter(function(IRequest $request, IResponse $response) use ($model) {
-    // Modify headers
-    $response->setHeader(..);
-    
-    // Fetch topsecret data
-    $data = $this->facade->getData();
-    foreach ($data as $d) {
-        // Write or print data..
-    }
+	// Modify headers
+	$response->setHeader($header);
+
+	// Fetch topsecret data
+	$data = $this->facade->getData();
+	foreach ($data as $d) {
+		// Write or print data..
+	}
 });
 $response = new FlyFileResponse($adapter, 'my.data');
 
@@ -106,59 +106,59 @@ $this->sendResponse($response);
 final class BigOperationHandler
 {
 
-    /** @var Facade */
-    private $facade;
+	/** @var Facade */
+	private $facade;
 
-    /**
-     * @param Facade $facade
-     */
-    public function __construct(Facade $facade)
-    {
-        $this->facade = $facade;
-    }
+	/**
+	 * @param Facade $facade
+	 */
+	public function __construct(Facade $facade)
+	{
+		$this->facade = $facade;
+	}
 
-    public function toFlyResponse()
-    {
-        $adapter = new CallbackAdapter(function (IRequest $request, IResponse $response) {
-            // Modify headers
-            $response->setHeader(..);
+	public function toFlyResponse()
+	{
+		$adapter = new CallbackAdapter(function (IRequest $request, IResponse $response) {
+			// Modify headers
+			$response->setHeader(..);
 
-            // Fetch topsecret data
-            $data = $this->facade->getData();
-            foreach ($data as $d) {
-                // Write or print data..
-            }
-        });
+			// Fetch topsecret data
+			$data = $this->facade->getData();
+			foreach ($data as $d) {
+				// Write or print data..
+			}
+		});
 
-        return new FlyFileResponse($adapter, 'file.ext');
+		return new FlyFileResponse($adapter, 'file.ext');
 
-        // or
-        return new FlyResponse($adapter);
-    }
+		// or
+		return new FlyResponse($adapter);
+	}
 }
 
 interface IBigOperationHandlerFactory
 {
 
-    /**
-     * @return BigOperationHandler
-     */
-    public function create();
+	/**
+	 * @return BigOperationHandler
+	 */
+	public function create();
 
 }
 
 final class MyPresenter extends Nette\Application\UI\Presenter
 {
 
-    /** @var IBigOperationHandlerFactory @inject */
-    public $bigOperationHandlerFactory;
+	/** @var IBigOperationHandlerFactory @inject */
+	public $bigOperationHandlerFactory;
 
-    public function handleMagic()
-    {
-        $this->sendResponse(
-            $this->bigOperationHandlerFactory->create()->toFlyResponse()
-        );
-    }
+	public function handleMagic()
+	{
+		$this->sendResponse(
+			$this->bigOperationHandlerFactory->create()->toFlyResponse()
+		);
+	}
 }
 ```
 
