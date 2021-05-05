@@ -1,43 +1,43 @@
-# FlyResponse
+![](https://heatbadger.now.sh/github/readme/contributte/fly-response/?deprecated=1)
 
-On-the-fly response for Nette Framework.
+<p align=center>
+    <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+    <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+    <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
------
+<p align=center>
+    Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-[![Build Status](https://img.shields.io/travis/minetro/fly-response.svg?style=flat-square)](https://travis-ci.org/minetro/fly-response)
-[![Code coverage](https://img.shields.io/coveralls/minetro/fly-response.svg?style=flat-square)](https://coveralls.io/r/minetro/fly-response)
-[![Downloads this Month](https://img.shields.io/packagist/dm/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
-[![Downloads total](https://img.shields.io/packagist/dt/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
-[![Latest stable](https://img.shields.io/packagist/v/minetro/fly-response.svg?style=flat-square)](https://packagist.org/packages/minetro/fly-response)
-[![HHVM Status](https://img.shields.io/hhvm/minetro/fly-response.svg?style=flat-square)](http://hhvm.h4cc.de/package/minetro/fly-response)
+## Disclaimer
 
-## Discussion / Help
+| :warning: | This project is no longer being maintained. Please use [contributte/application](https://github.com/contributte/application).
+|---|---|
 
-[![Join the chat](https://img.shields.io/gitter/room/minetro/nette.svg?style=flat-square)](https://gitter.im/minetro/nette?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+| Composer | [`contributte/fly-response`](https://packagist.org/packages/contributte/fly-response) |
+|---| --- |
+| Version | ![](https://badgen.net/packagist/v/contributte/fly-response) |
+| PHP | ![](https://badgen.net/packagist/php/contributte/fly-response) |
+| License | ![](https://badgen.net/github/license/contributte/fly-response) |
 
-## Contributte
+## Documentation
 
-This package is no longer developed here. In favor of [contributte/application](https://github.com/contributte/application).
+### Usage
 
-## Install
+#### Responses
 
-```bash
-composer require minetro/fly-response
-```
-
-## Responses
-
-### FlyResponse
+##### FlyResponse
 
 For common purpose and your custom solutions.
 
-### FlyFileResponse
+##### FlyFileResponse
 
 Special response for handling files on-the-fly.
 
-## Adapters
+#### Adapters
 
-### ProcessAdapter
+##### ProcessAdapter
 
 Execute command over [popen](http://php.net/manual/en/function.popen.php).
 
@@ -52,7 +52,7 @@ $response = new FlyFileResponse($adapter, 'folder.tgz');
 $this->sendResponse($response);
 ```
 
-### StdoutAdapter
+##### StdoutAdapter
 
 Write to `php://output`.
 
@@ -76,7 +76,7 @@ $response = new FlyFileResponse($adapter, 'my.data');
 $this->sendResponse($response);
 ```
 
-### CallbackAdapter
+##### CallbackAdapter
 
 ```php
 use Minetro\FlyResponse\Adapter\CallbackAdapter;
@@ -100,7 +100,7 @@ $response = new FlyFileResponse($adapter, 'my.data');
 $this->sendResponse($response);
 ```
 
-## Model
+#### Model
 
 ```php
 final class BigOperationHandler
@@ -162,6 +162,15 @@ final class MyPresenter extends Nette\Application\UI\Presenter
 }
 ```
 
+## Development
+
+This package was maintain by these authors.
+
+<a href="https://github.com/f3l1x">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
+
 -----
 
-Thanks for testing, reporting and contributing.
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for being used this package.
