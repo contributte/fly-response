@@ -2,7 +2,9 @@
   "name": "minetro/fly-response",
   "description": "FlyResponse to Nette Framework",
   "type": "library",
-  "license": ["BSD-3-Clause"],
+  "license": [
+    "BSD-3-Clause"
+  ],
   "homepage": "https://github.com/minetro/fly-response",
   "authors": [
     {
