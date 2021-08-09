@@ -15,10 +15,10 @@
 | :warning: | This project is no longer being maintained. Please use [contributte/application](https://github.com/contributte/application).
 |---|---|
 
-| Composer | [`contributte/fly-response`](https://packagist.org/packages/contributte/fly-response) |
+| Composer | [`minetro/fly-response`](https://packagist.org/packages/minetro/fly-response) |
 |---| --- |
-| Version | ![](https://badgen.net/packagist/v/contributte/fly-response) |
-| PHP | ![](https://badgen.net/packagist/php/contributte/fly-response) |
+| Version | ![](https://badgen.net/packagist/v/minetro/fly-response) |
+| PHP | ![](https://badgen.net/packagist/php/minetro/fly-response) |
 | License | ![](https://badgen.net/github/license/contributte/fly-response) |
 
 ## Documentation
